@@ -1,0 +1,18 @@
+.header-section {
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.header-section .text{
+  align-items: center;
+}
+
+.header-section .button {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.header-section .button i {
+  font-size: 12px;
+  margin-right: 7px;
+}

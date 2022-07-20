@@ -1,0 +1,19 @@
+.history-list {
+  font-weight: bold;
+  justify-content: space-between;
+  display: flex;
+  font-size: 18px;
+}
+
+.history-list .credit {
+  color: brown;
+}
+
+.history-list .debit {
+  color: green;
+}
+
+.history-list i {
+  font-size: 16px;
+  color: brown;
+}

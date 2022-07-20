@@ -1,0 +1,22 @@
+.salary-config {
+  justify-content: space-between;
+}
+
+.salary-config .edit-salary input {
+  font-size: 22px;
+  font-weight: 500;
+  border: 0;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  padding: 0;
+}
+
+.salary-config .current-salary {
+  font-size: 22px;
+}
+
+.salary-config button {
+  align-self: center;
+  height: 27px;
+  text-decoration: none;
+}

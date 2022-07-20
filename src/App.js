@@ -1,8 +1,12 @@
+import { Container } from "react-bootstrap";
+
+import Dashboard from "./pages/Dashboard";
+
 function App() {
   return (
-    <div className="App">
-      startup
-    </div>
+    <Container className="App">
+      <Dashboard />
+    </Container>
   );
 }
 
