@@ -15,6 +15,16 @@ export default function ShoppingItem() {
         </Stack>
         <h3>190K</h3>
       </Stack>
+      <Stack direction="horizontal" gap={3} className={styles.action}>
+        <p className={styles.delete}>
+          <i class="fa-solid fa-trash-can" />
+          Hapus
+        </p>
+        <p className={styles.edit}>
+          <i class="fa-solid fa-pen-to-square" />
+          Edit
+        </p>
+      </Stack>
     </Row>
   );
 }

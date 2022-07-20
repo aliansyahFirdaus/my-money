@@ -1,3 +1,26 @@
 .shopping-item h3 {
   align-self: flex-start;
 }
+
+.shopping-item p {
+  margin: 0;
+}
+
+.shopping-item .action {
+  text-decoration: underline;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.shopping-item .action i {
+  margin-right: 7px;
+  font-size: 11px;
+}
+
+.shopping-item .action .delete {
+  color: brown;
+}
+
+.shopping-item .action .edit {
+  color: rgb(160, 136, 0);
+}

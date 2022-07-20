@@ -14,7 +14,7 @@ export default function ShoppingList() {
           <i class="fa-solid fa-circle-plus" /> Add
         </HeaderSection>
         
-        <Stack>
+        <Stack gap={3}>
           {[1, 2, 3, 4, 5].map((i) => (
             <ShoppingItem key={i} />
           ))}
