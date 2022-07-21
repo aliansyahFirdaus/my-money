@@ -6,8 +6,12 @@
   padding-bottom: 22px;
 }
 
-.shopping-item:not(:first-child) {
+.shopping-item:not(:first-child, :last-child) {
   padding: 22px 0;
+}
+
+.shopping-item:last-child {
+  padding-top: 22px;
 }
 
 .shopping-item h3 {
