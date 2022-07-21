@@ -1,3 +1,24 @@
-/* .form-shopping .quantity {
-  width: 60%;
-} */
+.form-shopping .quantity {
+  width: 75%;
+}
+
+.form-shopping .action {
+  margin-top: 10px;
+}
+
+.form-shopping .action p {
+  font-size: 12px;
+}
+
+.form-shopping .action i {
+  margin-right: 7px;
+  font-size: 11px;
+}
+
+.form-shopping .action .danger {
+  color: brown;
+}
+
+.form-shopping .action .success {
+  color: rgb(12, 141, 70);
+}

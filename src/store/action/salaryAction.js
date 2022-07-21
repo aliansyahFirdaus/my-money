@@ -7,7 +7,6 @@ export const fetchSalary = () => {
       .then((data) => {
         dispatch(salaryAction.getBaseSalary(data.base));
         dispatch(salaryAction.getExtraSalary(data.extra));
-        dispatch(salaryAction.getTotal(10));
       })
       .catch((err) => console.log(err));
   };

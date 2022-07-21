@@ -16,14 +16,14 @@
   font-size: 11px;
 }
 
-.shopping-item .action .delete {
+.shopping-item .action .danger {
   color: brown;
 }
 
-.shopping-item .action .edit {
+.shopping-item .action .warning {
   color: rgb(160, 136, 0);
 }
 
-.shopping-item .action .done {
+.shopping-item .action .success {
   color: rgb(12, 141, 70);
 }

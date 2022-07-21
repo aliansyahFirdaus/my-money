@@ -1,21 +1,42 @@
+import { useDispatch } from "react-redux";
 import { Row, Stack } from "react-bootstrap";
+import {
+  deleteShoppingList,
+  editShoppingList,
+} from "../../store/action/shoppingAction";
 
 import React, { useState } from "react";
 import styles from "./ShoppingItem.module.css";
 import FormShoppingItem from "./FormShoppingItem";
 
-export default function ShoppingItem() {
+export default function ShoppingItem({ data }) {
   const [isEdit, setIsEdit] = useState(false);
+  const [isRealPrice, setIsRealPrice] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleEditHandler = () => setIsEdit((prev) => !prev);
 
-  const submitEditShoppingItems = () => {
-    console.log("done");
+  const priceTotalHandler = (real) =>
+    real ? data.price / 1000 : (data.quantity * data.price) / 1000;
+
+  const priceToggle = () => setIsRealPrice((prev) => !prev);
+
+  const submitEditShoppingItems = (newData) => {
+    dispatch(editShoppingList(newData, data.id));
+    toggleEditHandler();
   };
+
+  const deleteHandler = () => dispatch(deleteShoppingList(data.id));
 
   return (
     <Row className={styles["shopping-item"]}>
-      {isEdit && <FormShoppingItem />}
+      {isEdit && (
+        <FormShoppingItem
+          onSubmit={submitEditShoppingItems}
+          close={toggleEditHandler}
+          data={data}
+        />
+      )}
 
       {!isEdit && (
         <Stack
@@ -24,36 +45,24 @@ export default function ShoppingItem() {
         >
           <Stack>
             <h5>
-              <a href={"www.facebook.com"}>Celana panjang</a> {` x ${5}`}
+              <a href={data.link}>{data.title}</a>{" "}
+              {` x ${data.quantity} ${data.unit}`}
             </h5>
-            <p>description</p>
+            <p>{data.description}</p>
           </Stack>
-          <h3>190K</h3>
+          <h3 onClick={priceToggle}>{priceTotalHandler(isRealPrice)}K</h3>
         </Stack>
       )}
 
       <Stack direction="horizontal" gap={3} className={styles.action}>
         {!isEdit && (
-          <p className={styles.delete}>
+          <p className={styles.danger} onClick={deleteHandler}>
             <i className="fa-solid fa-trash-can" /> <span>Delete</span>
           </p>
         )}
-
         {!isEdit && (
-          <p className={styles.edit} onClick={toggleEditHandler}>
+          <p className={styles.warning} onClick={toggleEditHandler}>
             <i className="fa-solid fa-pen-to-square" /> <span>Edit</span>
-          </p>
-        )}
-
-        {isEdit && (
-          <p className={styles.edit} onClick={toggleEditHandler}>
-            <i class="fa-solid fa-xmark" /> <span>Cancel</span>
-          </p>
-        )}
-
-        {isEdit && (
-          <p className={styles.done} onClick={submitEditShoppingItems}>
-            <i class="fa-solid fa-check" /> <span>Done</span>
           </p>
         )}
       </Stack>

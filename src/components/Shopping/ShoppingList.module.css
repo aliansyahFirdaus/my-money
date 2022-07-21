@@ -1,11 +1,5 @@
 .shopping-link .list {
-  height: 450px;
+  max-height: 450px;
   overflow-y: auto;
-  /* overflow-x: hidden; */
-}
-
-.shopping-link .add {
-  text-decoration: none;
-  align-self: flex-start;
-  font-size: 14px;
+  overflow-x: hidden;
 }
