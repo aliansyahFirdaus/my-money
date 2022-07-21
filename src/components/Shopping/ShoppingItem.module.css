@@ -7,7 +7,6 @@
 }
 
 .shopping-item .action {
-  text-decoration: underline;
   margin-top: 8px;
   font-size: 12px;
 }
@@ -23,4 +22,8 @@
 
 .shopping-item .action .edit {
   color: rgb(160, 136, 0);
+}
+
+.shopping-item .action .done {
+  color: rgb(12, 141, 70);
 }

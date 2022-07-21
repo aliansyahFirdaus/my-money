@@ -11,7 +11,15 @@ import styles from "./Salary.module.css";
 
 export default function Salary() {
   const dispatch = useDispatch();
-  const { total, base, extras } = useSelector((state) => state.salary);
+  const { base, extras } = useSelector((state) => state.salary);
+
+  const totalCal = () => {
+    const extrasTotal =
+      extras.length > 0
+        ? extras.map((extra) => extra.amount).reduce((acc, curr) => acc + curr)
+        : 0;
+    return base + extrasTotal;
+  };
 
   useEffect(() => {
     dispatch(fetchSalary());
@@ -22,7 +30,7 @@ export default function Salary() {
       <section className={styles["base-salary"]}>
         <Stack direction="horizontal" className="justify-content-between">
           <h1>Total</h1>
-          <h1>{numberFormat(total)}</h1>
+          <h1>{numberFormat(totalCal())}</h1>
         </Stack>
       </section>
 

@@ -1,12 +1,22 @@
 import { Stack } from "react-bootstrap";
 
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderSection from "../../UI/HeaderSection";
 import ShoppingItem from "./ShoppingItem";
 import styles from "./ShoppingList.module.css";
 import Card from "../../UI/Card";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchShopping } from "../../store/action/shoppingAction";
 
 export default function ShoppingList() {
+  const { shopList } = useSelector((state) => state.shopping);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(shopList, "==============")
+    dispatch(fetchShopping());
+  }, []);
+
   return (
     <Card>
       <section className={styles["shopping-link"]}>

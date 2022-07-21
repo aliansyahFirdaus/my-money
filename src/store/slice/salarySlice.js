@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const salarySlice = createSlice({
   name: "salary-slice",
   initialState: {
-    total: 0,
     base: 0,
     extras: [],
   },
@@ -20,10 +19,7 @@ const salarySlice = createSlice({
 
       const extras = action.payload ? objToArr(action.payload) : [];
       state.extras = extras;
-    },
-    getTotal(state) {
-      state.total = 10;
-    },
+    }
   },
 });
 

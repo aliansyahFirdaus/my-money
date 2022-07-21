@@ -1,6 +1,7 @@
 .shopping-link .list {
   height: 450px;
   overflow-y: auto;
+  /* overflow-x: hidden; */
 }
 
 .shopping-link .add {
