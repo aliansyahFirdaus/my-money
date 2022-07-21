@@ -1,9 +1,35 @@
+.shopping-item:not(:last-child) {
+  border-bottom: 1px solid rgb(204, 204, 204);;
+}
+
+.shopping-item:first-child {
+  padding-bottom: 22px;
+}
+
+.shopping-item:not(:first-child) {
+  padding: 22px 0;
+}
+
 .shopping-item h3 {
   align-self: flex-start;
 }
 
 .shopping-item p {
   margin: 0;
+}
+
+.shopping-item a {
+  color: black;
+}
+
+.shopping-item .desc {
+  width: 80%;
+  color: rgb(158, 158, 158);
+}
+
+.shopping-item .quantity {
+  font-weight: 600;
+  color: rgb(107, 107, 107);
 }
 
 .shopping-item .action {

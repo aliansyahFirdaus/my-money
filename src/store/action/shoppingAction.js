@@ -4,10 +4,7 @@ export const fetchShopping = () => {
   return (dispatch) => {
     fetch("https://my-money-ec63e-default-rtdb.firebaseio.com/shopping.json")
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        dispatch(shoppingAction.getShopList(data));
-      })
+      .then((data) => dispatch(shoppingAction.getShopList(data)))
       .catch((err) => console.log(err));
   };
 };

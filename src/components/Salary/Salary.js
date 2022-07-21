@@ -12,12 +12,19 @@ import styles from "./Salary.module.css";
 export default function Salary() {
   const dispatch = useDispatch();
   const { base, extras } = useSelector((state) => state.salary);
+  const { shopList } = useSelector((state) => state.shopping);
 
   const totalCal = () => {
-    const extrasTotal =
-      extras.length > 0
-        ? extras.map((extra) => extra.amount).reduce((acc, curr) => acc + curr)
-        : 0;
+    let extrasTotal = 0;
+    
+    const calculateFromArr = (data) => data?.reduce((acc, curr) => acc + curr);
+
+    const extrasCal = extras.map((extra) => extra?.amount);
+    const shopCal = shopList.map((extra) => extra?.price * extra?.quantity);
+
+    extrasTotal += extras?.length > 0 ? calculateFromArr(extrasCal) : 0;
+    extrasTotal -= extras?.length > 0 ? calculateFromArr(shopCal) : 0;
+
     return base + extrasTotal;
   };
 

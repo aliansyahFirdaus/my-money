@@ -3,3 +3,14 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+.shopping-link .not-found {
+  opacity: 0.3;
+}
+
+.shopping-link .not-found p {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0;
+  margin: 30px 0;
+}

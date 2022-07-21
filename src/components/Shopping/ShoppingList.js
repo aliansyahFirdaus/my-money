@@ -20,9 +20,8 @@ export default function ShoppingList() {
   const addToggleHandler = () => isAdd((prev) => !prev);
 
   const submitAddHandler = (data) => {
-    console.log(data)
     dispatch(addShoppingList(data));
-    addToggleHandler()
+    addToggleHandler();
   };
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export default function ShoppingList() {
           </HeaderSection>
         </div>
 
-        <Stack gap={3} className={styles.list}>
+        <Stack className={styles.list}>
           {add && (
             <Fragment>
               <FormShoppingItem
@@ -48,9 +47,17 @@ export default function ShoppingList() {
               />
             </Fragment>
           )}
-          {shopList.map((data) => (
-            <ShoppingItem key={data.id} data={data} />
-          ))}
+
+          {shopList.length === 0 && !add && (
+            <div className={styles["not-found"]}>
+              <Card>
+                <p>Shopping not found</p>
+              </Card>
+            </div>
+          )}
+
+          {shopList.length > 0 &&
+            shopList.map((data) => <ShoppingItem key={data.id} data={data} />)}
         </Stack>
       </section>
     </Card>

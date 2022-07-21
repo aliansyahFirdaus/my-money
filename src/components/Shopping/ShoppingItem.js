@@ -12,12 +12,13 @@ import FormShoppingItem from "./FormShoppingItem";
 export default function ShoppingItem({ data }) {
   const [isEdit, setIsEdit] = useState(false);
   const [isRealPrice, setIsRealPrice] = useState(false);
+
   const dispatch = useDispatch();
 
   const toggleEditHandler = () => setIsEdit((prev) => !prev);
 
   const priceTotalHandler = (real) =>
-    real ? data.price / 1000 : (data.quantity * data.price) / 1000;
+    (real ? data.price : data.quantity * data.price) / 1000;
 
   const priceToggle = () => setIsRealPrice((prev) => !prev);
 
@@ -43,12 +44,16 @@ export default function ShoppingItem({ data }) {
           direction="horizontal"
           className="d-flex justify-content-between"
         >
-          <Stack>
-            <h5>
-              <a href={data.link}>{data.title}</a>{" "}
-              {` x ${data.quantity} ${data.unit}`}
-            </h5>
-            <p>{data.description}</p>
+          <Stack gap={1}>
+            <a href={data?.link}>
+              <h5>{data?.title}</h5>
+            </a>
+
+            <p className={styles.quantity}>{` x ${
+              isRealPrice ? "1" : data?.quantity
+            } ${data?.unit}`}</p>
+
+            <p className={styles.desc}>{data?.description}</p>
           </Stack>
           <h3 onClick={priceToggle}>{priceTotalHandler(isRealPrice)}K</h3>
         </Stack>
