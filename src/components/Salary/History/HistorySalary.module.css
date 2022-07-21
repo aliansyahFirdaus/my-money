@@ -1,0 +1,28 @@
+.history .add {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.history .add input {
+  border: 0;
+  width: 80%;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}
+
+.history .add p {
+  margin: 0;
+  color: brown;
+}
+
+.history .not-found {
+    opacity: 0.3;
+}
+
+.history .not-found p {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0;
+  margin: 30px 0;
+}

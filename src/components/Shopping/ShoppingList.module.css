@@ -1,3 +1,8 @@
+.shopping-link .list {
+  height: 450px;
+  overflow-y: auto;
+}
+
 .shopping-link .add {
   text-decoration: none;
   align-self: flex-start;

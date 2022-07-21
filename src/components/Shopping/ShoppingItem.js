@@ -17,11 +17,11 @@ export default function ShoppingItem() {
       </Stack>
       <Stack direction="horizontal" gap={3} className={styles.action}>
         <p className={styles.delete}>
-          <i class="fa-solid fa-trash-can" />
+          <i className="fa-solid fa-trash-can" />
           Hapus
         </p>
         <p className={styles.edit}>
-          <i class="fa-solid fa-pen-to-square" />
+          <i className="fa-solid fa-pen-to-square" />
           Edit
         </p>
       </Stack>

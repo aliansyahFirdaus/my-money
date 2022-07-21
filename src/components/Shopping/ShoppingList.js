@@ -10,12 +10,14 @@ export default function ShoppingList() {
   return (
     <Card>
       <section className={styles["shopping-link"]}>
-        <HeaderSection text="Belanjaan">
-          <i class="fa-solid fa-circle-plus" /> Add
-        </HeaderSection>
-        
-        <Stack gap={3}>
-          {[1, 2, 3, 4, 5].map((i) => (
+        <div className={styles.header}>
+          <HeaderSection text="Kebutuhan Daily">
+            <i className="fa-solid fa-circle-plus" /> Add
+          </HeaderSection>
+        </div>
+
+        <Stack gap={3} className={styles.list}>
+          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
             <ShoppingItem key={i} />
           ))}
         </Stack>
