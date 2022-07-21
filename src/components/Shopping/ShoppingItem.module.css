@@ -26,9 +26,9 @@
   color: black;
 }
 
-.shopping-item .desc {
-  width: 80%;
-  color: rgb(158, 158, 158);
+.shopping-item .detail {
+  max-width: 65%;
+  word-wrap: break-word;
 }
 
 .shopping-item .quantity {

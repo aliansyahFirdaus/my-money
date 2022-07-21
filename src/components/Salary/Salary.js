@@ -17,7 +17,7 @@ export default function Salary() {
   const totalCal = () => {
     let extrasTotal = 0;
 
-    const calculateFromArr = (data) =>  data.reduce((acc, curr) => acc + curr)
+    const calculateFromArr = (data) => data.reduce((acc, curr) => acc + curr);
 
     const extrasCal = extras.map((extra) => extra?.amount);
     const shopCal = shopList.map((extra) => extra?.price * extra?.quantity);

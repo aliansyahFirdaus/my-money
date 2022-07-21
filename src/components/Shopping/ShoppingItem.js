@@ -44,8 +44,8 @@ export default function ShoppingItem({ data }) {
           direction="horizontal"
           className="d-flex justify-content-between"
         >
-          <Stack gap={1}>
-            <a href={data?.link}>
+          <Stack gap={1} className={styles.detail}>
+            <a href={data?.link} className={styles.title}>
               <h5>{data?.title}</h5>
             </a>
 
