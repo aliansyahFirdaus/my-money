@@ -8,7 +8,7 @@ export default function HeaderSection({ badge, text, children }) {
     <Row className={styles["header-section"]}>
       <Col className="d-flex justify-content-between">
         <Stack direction="horizontal" className="text" gap={2}>
-          <Badge bg="dark">{badge}</Badge>
+          {badge && <Badge bg="dark">{badge}</Badge>}
           <h5>{text}</h5>
         </Stack>
 
