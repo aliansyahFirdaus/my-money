@@ -32,7 +32,7 @@ export default function ShoppingList() {
     <Card>
       <section className={styles["shopping-link"]}>
         <div className={styles.header}>
-          <HeaderSection text="Kebutuhan Daily">
+          <HeaderSection badge={shopList.length} text="Kebutuhan Daily">
             <i className="fa-solid fa-circle-plus" onClick={addToggleHandler} />
             <span>Add</span>
           </HeaderSection>
