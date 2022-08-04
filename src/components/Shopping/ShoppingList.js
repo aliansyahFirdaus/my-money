@@ -20,7 +20,7 @@ export default function ShoppingList() {
 
   const addToggleHandler = () => isAdd((prev) => !prev);
 
-  const getTotalSpentShopping = shopList.map((shop) => shop?.price * shop?.quantity).reduce((acc, curr) => acc + curr);
+  const getTotalSpentShopping = shopList.map((shop) => shop?.price * shop?.quantity)
 
   console.log(getTotalSpentShopping)
 
@@ -31,7 +31,7 @@ export default function ShoppingList() {
 
   useEffect(() => {
     dispatch(fetchShopping());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Card>
