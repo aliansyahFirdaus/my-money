@@ -7,6 +7,7 @@ export const fetchSalary = () => {
       .then((data) => {
         dispatch(salaryAction.getBaseSalary(data.base));
         dispatch(salaryAction.getExtraSalary(data.extra));
+        dispatch(salaryAction.getKreditSalary(data.kredit))
       })
       .catch((err) => console.log(err));
   };
@@ -55,12 +56,46 @@ export const addExtraSalary = (extra) => {
     )
       .then(() =>
         fetch(
-          "https://my-money-ec63e-default-rtdb.firebaseio.com/salary/extra/.json"
+          "https://my-money-ec63e-default-rtdb.firebaseio.com/salary/extra.json"
         )
       )
       .then((res) => res.json())
       .then((data) => {
         dispatch(salaryAction.getExtraSalary(data));
+      });
+  };
+};
+
+export const deleteKreditSalary = (id) => {
+  return (dispatch) => {
+    fetch(
+      `https://my-money-ec63e-default-rtdb.firebaseio.com/salary/kredit/${id}.json`,
+      {
+        method: "DELETE",
+      }
+    ).then(() => dispatch(fetchSalary()));
+  };
+};
+
+
+export const addKreditSalary = (extra) => {
+  return (dispatch) => {
+    fetch(
+      `https://my-money-ec63e-default-rtdb.firebaseio.com/salary/kredit.json`,
+      {
+        method: "POST",
+        body: JSON.stringify(extra),
+        headers: { "Content-type": "application/json" },
+      }
+    )
+      .then(() =>
+        fetch(
+          "https://my-money-ec63e-default-rtdb.firebaseio.com/salary/kredit.json"
+        )
+      )
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(salaryAction.getKreditSalary(data));
       });
   };
 };

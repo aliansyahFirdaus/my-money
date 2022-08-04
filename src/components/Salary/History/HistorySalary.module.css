@@ -1,3 +1,9 @@
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 .history .add {
   justify-content: space-between;
   display: flex;

@@ -11,7 +11,7 @@ import styles from "./Salary.module.css";
 
 export default function Salary() {
   const dispatch = useDispatch();
-  const { base, extras } = useSelector((state) => state.salary);
+  const { base, extras, kredit } = useSelector((state) => state.salary);
   const { shopList } = useSelector((state) => state.shopping);
 
   const totalCal = () => {
@@ -20,10 +20,12 @@ export default function Salary() {
     const calculateFromArr = (data) => data.reduce((acc, curr) => acc + curr);
 
     const extrasCal = extras.map((extra) => extra?.amount);
-    const shopCal = shopList.map((extra) => extra?.price * extra?.quantity);
+    const shopCal = shopList.map((shop) => shop?.price * shop?.quantity);
+    const kreditCal = kredit.map((kredit) => kredit?.amount)
 
     extrasTotal += extras?.length > 0 ? calculateFromArr(extrasCal) : 0;
     extrasTotal -= shopList?.length > 0 ? calculateFromArr(shopCal) : 0;
+    extrasTotal -= kredit?.length > 0 ? calculateFromArr(kreditCal) : 0;
 
     return base + extrasTotal;
   };
@@ -44,7 +46,7 @@ export default function Salary() {
       <section>
         <Stack gap={4}>
           {base && <SalaryConfig base={base} />}
-          {extras && <HistorySalary data={extras} />}
+          {extras && <HistorySalary extras={extras} kredit={kredit} />}
         </Stack>
       </section>
     </Card>

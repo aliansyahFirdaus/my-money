@@ -5,6 +5,7 @@ const salarySlice = createSlice({
   initialState: {
     base: 0,
     extras: [],
+    kredit: []
   },
   reducers: {
     getBaseSalary(state, action) {
@@ -19,7 +20,17 @@ const salarySlice = createSlice({
 
       const extras = action.payload ? objToArr(action.payload) : [];
       state.extras = extras;
-    }
+    },
+    getKreditSalary(state, action) {
+      function objToArr(data) {
+        return Object.keys(data).map((key) => {
+          return { id: key, amount: data[key] };
+        });
+      }
+
+      const kredit = action.payload ? objToArr(action.payload) : [];
+      state.kredit = kredit;
+    },
   },
 });
 
