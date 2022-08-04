@@ -1,0 +1,9 @@
+.total-section {
+  margin-top: 20px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.total-section .text {
+  align-items: center;
+}

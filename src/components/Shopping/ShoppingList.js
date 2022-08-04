@@ -11,6 +11,7 @@ import ShoppingItem from "./ShoppingItem";
 import Card from "../../UI/Card";
 import FormShoppingItem from "./FormShoppingItem";
 import styles from "./ShoppingList.module.css";
+import PriceTotalCard from "../../UI/PriceTotalCard";
 
 export default function ShoppingList() {
   const [add, isAdd] = useState(false);
@@ -18,6 +19,10 @@ export default function ShoppingList() {
   const dispatch = useDispatch();
 
   const addToggleHandler = () => isAdd((prev) => !prev);
+
+  const getTotalSpentShopping = shopList.map((shop) => shop?.price * shop?.quantity).reduce((acc, curr) => acc + curr);
+
+  console.log(getTotalSpentShopping)
 
   const submitAddHandler = (data) => {
     dispatch(addShoppingList(data));
@@ -59,6 +64,11 @@ export default function ShoppingList() {
           {shopList.length > 0 &&
             shopList.map((data) => <ShoppingItem key={data.id} data={data} />)}
         </Stack>
+
+
+        <div className={styles.header}>
+          <PriceTotalCard total={getTotalSpentShopping} />
+        </div>
       </section>
     </Card>
   );

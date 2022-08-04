@@ -1,6 +1,7 @@
 import { Stack } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSalary } from "../../store/action/salaryAction";
+import getMonth from "../../helpers/getMonth";
 
 import React, { useEffect } from "react";
 import HistorySalary from "./History/HistorySalary";
@@ -36,6 +37,11 @@ export default function Salary() {
 
   return (
     <Card>
+      <div className="d-flex justify-content-between">
+        <p className="text-center mb-4">Data Untuk Bulan</p>
+        <p className="text-center mb-4">{getMonth}</p>
+      </div>
+
       <section className={styles["base-salary"]}>
         <Stack direction="horizontal" className="justify-content-between">
           <h1>Total</h1>
