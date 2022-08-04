@@ -31,7 +31,6 @@ export default function HistorySalary({ extras, kredit }) {
     e.preventDefault();
     if (!kreditRef) return;
     dispatch(addKreditSalary(Number(kreditRef.current.value)));
-    console.log("kredit")
     addKreditToggleHandler();
   };
 

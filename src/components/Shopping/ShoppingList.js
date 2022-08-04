@@ -22,8 +22,6 @@ export default function ShoppingList() {
 
   const getTotalSpentShopping = shopList.map((shop) => shop?.price * shop?.quantity)
 
-  console.log(getTotalSpentShopping)
-
   const submitAddHandler = (data) => {
     dispatch(addShoppingList(data));
     addToggleHandler();
